@@ -9,9 +9,9 @@ A Flutter package that shows a preview popup on long press, inspired by Safari's
 
 <table>
   <tr>
-    <td align="center"><img src="screenshots/without_context_menu.gif" width="220" /><br/><sub>Widget preview</sub></td>
-    <td align="center"><img src="screenshots/with_context_menu.gif" width="220" /><br/><sub>Context menu actions</sub></td>
-    <td align="center"><img src="screenshots/on_image_widget.gif" width="220" /><br/><sub>Zoomable image preview</sub></td>
+    <td align="center"><img src="https://raw.githubusercontent.com/kz422/flutter_longpress_preview/main/screenshots/without_context_menu.gif" width="220" /><br/><sub>Widget preview</sub></td>
+    <td align="center"><img src="https://raw.githubusercontent.com/kz422/flutter_longpress_preview/main/screenshots/with_context_menu.gif" width="220" /><br/><sub>Context menu actions</sub></td>
+    <td align="center"><img src="https://raw.githubusercontent.com/kz422/flutter_longpress_preview/main/screenshots/on_image_widget.gif" width="220" /><br/><sub>Zoomable image preview</sub></td>
   </tr>
 </table>
 
