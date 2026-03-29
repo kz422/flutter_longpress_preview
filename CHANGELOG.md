@@ -1,3 +1,7 @@
+## 0.1.1
+
+* Fix screenshot images not displaying on pub.dev (use absolute GitHub raw URLs).
+
 ## 0.1.0
 
 * Initial release.

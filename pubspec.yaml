@@ -1,6 +1,6 @@
 name: flutter_longpress_preview
 description: A Flutter widget that shows a preview popup on long press, similar to Safari link preview and Instagram peek. Supports any widget, URL OGP preview, and image zoom.
-version: 0.1.0
+version: 0.1.1
 homepage: https://github.com/kz422/flutter_longpress_preview
 repository: https://github.com/kz422/flutter_longpress_preview
 issue_tracker: https://github.com/kz422/flutter_longpress_preview/issues
