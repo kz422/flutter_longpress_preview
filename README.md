@@ -7,11 +7,13 @@
 
 A Flutter package that shows a preview popup on long press, inspired by Safari's link preview and Instagram's peek feature. Supports any widget, automatic URL/OGP link previews, and zoomable image previews — with smooth animations, blur backdrop, and drag-to-dismiss.
 
-<p float="left">
-  <img src="screenshots/without_context_menu.gif" width="30%" />
-  <img src="screenshots/with_context_menu.gif" width="30%" />
-  <img src="screenshots/on_image_widget.gif" width="30%" />
-</p>
+<table>
+  <tr>
+    <td align="center"><img src="screenshots/without_context_menu.gif" width="220" /><br/><sub>Widget preview</sub></td>
+    <td align="center"><img src="screenshots/with_context_menu.gif" width="220" /><br/><sub>Context menu actions</sub></td>
+    <td align="center"><img src="screenshots/on_image_widget.gif" width="220" /><br/><sub>Zoomable image preview</sub></td>
+  </tr>
+</table>
 
 ---
 
