@@ -1,3 +1,7 @@
+## 0.1.3
+
+* Fix `MissingPluginException` on Flutter Web when using `LongPressLinkPreview` — OGP images now use `Image.network` on web instead of `CachedNetworkImage`.
+
 ## 0.1.2
 
 * Update screenshot to show context menu actions in English.

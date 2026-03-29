@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'ogp_data.dart';
 
@@ -36,14 +37,16 @@ class LinkPreviewCard extends StatelessWidget {
             borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
             child: AspectRatio(
               aspectRatio: 16 / 9,
-              child: CachedNetworkImage(
-                imageUrl: data.imageUrl!,
-                fit: BoxFit.cover,
-                errorWidget: (_, __, ___) => Container(
-                  color: theme.colorScheme.surfaceContainerHighest,
-                  child: const Icon(Icons.broken_image_outlined, size: 40),
-                ),
-              ),
+              child: kIsWeb
+                  ? Image.network(data.imageUrl!, fit: BoxFit.cover)
+                  : CachedNetworkImage(
+                      imageUrl: data.imageUrl!,
+                      fit: BoxFit.cover,
+                      errorWidget: (_, __, ___) => Container(
+                        color: theme.colorScheme.surfaceContainerHighest,
+                        child: const Icon(Icons.broken_image_outlined, size: 40),
+                      ),
+                    ),
             ),
           ),
 
@@ -60,13 +63,16 @@ class LinkPreviewCard extends StatelessWidget {
                     if (showFavicon && data.faviconUrl != null)
                       Padding(
                         padding: const EdgeInsets.only(right: 6),
-                        child: CachedNetworkImage(
-                          imageUrl: data.faviconUrl!,
-                          width: 16,
-                          height: 16,
-                          errorWidget: (_, __, ___) =>
-                              const Icon(Icons.language, size: 16),
-                        ),
+                        child: kIsWeb
+                            ? Image.network(data.faviconUrl!,
+                                width: 16, height: 16)
+                            : CachedNetworkImage(
+                                imageUrl: data.faviconUrl!,
+                                width: 16,
+                                height: 16,
+                                errorWidget: (_, __, ___) =>
+                                    const Icon(Icons.language, size: 16),
+                              ),
                       ),
                     if (data.siteName != null)
                       Expanded(
