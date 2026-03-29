@@ -32,7 +32,7 @@ class OgpFetcher {
       _cache[url] = data;
       return data;
     } catch (e) {
-      debugPrint('[longpress_preview] OGP fetch error: $e');
+      debugPrint('[flutter_longpress_preview] OGP fetch error: $e');
       return OgpData(url: url);
     }
   }

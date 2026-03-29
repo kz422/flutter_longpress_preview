@@ -1,5 +1,5 @@
-name: longpress_preview_example
-description: Example app for longpress_preview package.
+name: flutter_longpress_preview_example
+description: Example app for flutter_longpress_preview package.
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  longpress_preview:
+  flutter_longpress_preview:
     path: ../
   url_launcher: ^6.2.0
 

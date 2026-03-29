@@ -1,7 +1,7 @@
-# longpress_preview
+# flutter_longpress_preview
 
-[![pub version](https://img.shields.io/pub/v/longpress_preview.svg)](https://pub.dev/packages/longpress_preview)
-[![pub points](https://img.shields.io/pub/points/longpress_preview)](https://pub.dev/packages/longpress_preview/score)
+[![pub version](https://img.shields.io/pub/v/flutter_longpress_preview.svg)](https://pub.dev/packages/flutter_longpress_preview)
+[![pub points](https://img.shields.io/pub/points/flutter_longpress_preview)](https://pub.dev/packages/flutter_longpress_preview/score)
 [![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Flutter](https://img.shields.io/badge/Flutter-%3E%3D3.10-blue.svg)](https://flutter.dev)
 
@@ -40,7 +40,7 @@ Add to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  longpress_preview: ^0.1.0
+  flutter_longpress_preview: ^0.1.0
 ```
 
 Then run:
@@ -58,7 +58,7 @@ flutter pub get
 Wrap any widget to preview arbitrary content on long press.
 
 ```dart
-import 'package:longpress_preview/longpress_preview.dart';
+import 'package:flutter_longpress_preview/flutter_longpress_preview.dart';
 
 LongPressPreview(
   preview: MyDetailWidget(),   // shown in the popup

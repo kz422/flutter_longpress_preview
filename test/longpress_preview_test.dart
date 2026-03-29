@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:longpress_preview/longpress_preview.dart';
+import 'package:flutter_longpress_preview/flutter_longpress_preview.dart';
 
 // Shared helper: pumps a LongPressPreview and returns the started gesture.
 Future<TestGesture> _longPress(

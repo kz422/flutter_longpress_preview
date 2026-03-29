@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:longpress_preview/longpress_preview.dart';
+import 'package:flutter_longpress_preview/flutter_longpress_preview.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 void main() => runApp(const ExampleApp());
@@ -10,7 +10,7 @@ class ExampleApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'longpress_preview example',
+      title: 'flutter_longpress_preview example',
       theme: ThemeData(
         colorSchemeSeed: Colors.indigo,
         useMaterial3: true,
@@ -29,7 +29,7 @@ class HomePage extends StatelessWidget {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('longpress_preview'),
+          title: const Text('flutter_longpress_preview'),
           bottom: const TabBar(
             tabs: [
               Tab(text: 'Widget'),

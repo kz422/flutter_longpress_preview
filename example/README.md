@@ -1,4 +1,4 @@
-# longpress_preview_example
+# flutter_longpress_preview_example
 
 A new Flutter project.
 

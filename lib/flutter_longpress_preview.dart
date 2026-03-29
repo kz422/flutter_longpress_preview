@@ -1,6 +1,6 @@
 /// A Flutter package that shows a preview popup on long press,
 /// similar to Safari link preview and Instagram's peek feature.
-library longpress_preview;
+library flutter_longpress_preview;
 
 export 'src/widgets/longpress_preview.dart';
 export 'src/widgets/longpress_link_preview.dart';
