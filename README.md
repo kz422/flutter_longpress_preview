@@ -27,6 +27,8 @@ A Flutter package that shows a preview popup on long press, inspired by Safari's
 - **Drag-to-dismiss** — swipe the popup down to close it.
 - **Haptic feedback** — medium impact on long press (configurable).
 - **In-memory OGP cache** — repeated previews for the same URL are instant.
+- **Context menu actions** — attach labelled actions (with optional icons and destructive styling) that appear below the popup; the popup stays open until the user taps an action or the backdrop.
+- **Flexible positioning** — pin the popup anywhere via `Alignment`, or leave it at the default centre position.
 - **Fully customisable** — colours, sizes, border radius, animation duration, loading/error widgets, and custom preview builders.
 - **Dart 3 / Flutter 3.10+** — null-safe, uses records, switch expressions.
 
@@ -171,8 +173,19 @@ LongPressImagePreview(
 | `barrierColor` | `Color` | `0x88000000` | Colour of the dimmed backdrop |
 | `animationDuration` | `Duration` | `220ms` | Open/close animation duration |
 | `animation` | `PreviewAnimation` | `scaleFromChild` | Animation style |
+| `alignment` | `Alignment` | `Alignment.center` | Where to position the popup on screen |
+| `actions` | `List<PreviewAction>` | `[]` | Context menu actions shown below the popup |
 | `enableHaptics` | `bool` | `true` | Haptic feedback on long press |
-| `longPressDuration` | `Duration` | `500ms` | How long to hold before preview opens |
+| `longPressDuration` | `Duration` | `300ms` | How long to hold before preview opens |
+
+### PreviewAction properties
+
+| Property | Type | Default | Description |
+|---|---|---|---|
+| `label` | `String` | required | Button text |
+| `onTap` | `VoidCallback` | required | Called when the action is tapped |
+| `icon` | `IconData?` | `null` | Optional leading icon |
+| `isDestructive` | `bool` | `false` | Renders the label in red |
 
 ### PreviewAnimation values
 

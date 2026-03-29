@@ -6,7 +6,9 @@
 .pub-cache/
 .pub/
 build/
-pubspec.lock
+# Lock file for the library itself (not needed for packages)
+# example/pubspec.lock is intentionally tracked for reproducibility
+/pubspec.lock
 
 # IDE
 .idea/
