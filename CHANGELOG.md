@@ -1,4 +1,4 @@
-## 0.1.5
+## 0.1.6
 
 * Remove `cached_network_image` dependency to restore WASM compatibility and full platform support (Windows, Linux, Web).
 * Add missing dartdoc comments to constructors and `OgpData.description`.
