@@ -1,3 +1,9 @@
+## 0.1.7
+
+* Add `onPreviewTap` callback to `LongPressPreview` — called when the preview popup itself is tapped, enabling peek-and-pop style navigation.
+* Update example app: tapping the preview or the "Open" action navigates to a full `ArticleDetailPage`.
+* Update screenshot.
+
 ## 0.1.6
 
 * Remove `cached_network_image` dependency to restore WASM compatibility and full platform support (Windows, Linux, Web).

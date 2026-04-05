@@ -32,6 +32,9 @@ class LongPressPreview extends StatefulWidget {
   /// Called on a normal (non-long) tap.
   final VoidCallback? onTap;
 
+  /// Called when the preview popup itself is tapped.
+  final VoidCallback? onPreviewTap;
+
   /// Creates a [LongPressPreview].
   const LongPressPreview({
     super.key,
@@ -41,6 +44,7 @@ class LongPressPreview extends StatefulWidget {
     this.onPreviewOpen,
     this.onPreviewClose,
     this.onTap,
+    this.onPreviewTap,
   });
 
   @override
@@ -85,6 +89,7 @@ class _LongPressPreviewState extends State<LongPressPreview>
       previewWidget: widget.preview,
       config: widget.config,
       onDismiss: _onDismiss,
+      onPreviewTap: widget.onPreviewTap,
     );
 
     widget.onPreviewOpen?.call();

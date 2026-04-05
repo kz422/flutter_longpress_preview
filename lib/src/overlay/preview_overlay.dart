@@ -62,6 +62,7 @@ class PreviewOverlayController {
     required Widget previewWidget,
     required PreviewConfig config,
     required VoidCallback onDismiss,
+    VoidCallback? onPreviewTap,
   }) {
     if (isShowing) return;
 
@@ -91,6 +92,7 @@ class PreviewOverlayController {
         previewWidget: previewWidget,
         config: config,
         onDismiss: () => hide(onDismiss: onDismiss),
+        onPreviewTap: onPreviewTap,
       ),
     );
 
@@ -118,6 +120,7 @@ class _PreviewPopup extends StatefulWidget {
   final Widget previewWidget;
   final PreviewConfig config;
   final VoidCallback onDismiss;
+  final VoidCallback? onPreviewTap;
 
   const _PreviewPopup({
     required this.animation,
@@ -125,6 +128,7 @@ class _PreviewPopup extends StatefulWidget {
     required this.previewWidget,
     required this.config,
     required this.onDismiss,
+    this.onPreviewTap,
   });
 
   @override
@@ -142,24 +146,32 @@ class _PreviewPopupState extends State<_PreviewPopup> {
   }
 
   Widget _buildStaticContent(double popupWidth, double popupHeight) {
-    final popup = Material(
-      color: Colors.transparent,
-      child: Container(
-        width: popupWidth,
-        constraints: BoxConstraints(maxHeight: popupHeight),
-        decoration: BoxDecoration(
-          color: widget.config.backgroundColor,
-          borderRadius: BorderRadius.circular(widget.config.borderRadius),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withValues(alpha: 0.18),
-              blurRadius: 32,
-              offset: const Offset(0, 8),
-            ),
-          ],
+    final popup = GestureDetector(
+      onTap: widget.onPreviewTap != null
+          ? () {
+              widget.onDismiss();
+              widget.onPreviewTap!();
+            }
+          : null,
+      child: Material(
+        color: Colors.transparent,
+        child: Container(
+          width: popupWidth,
+          constraints: BoxConstraints(maxHeight: popupHeight),
+          decoration: BoxDecoration(
+            color: widget.config.backgroundColor,
+            borderRadius: BorderRadius.circular(widget.config.borderRadius),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.18),
+                blurRadius: 32,
+                offset: const Offset(0, 8),
+              ),
+            ],
+          ),
+          clipBehavior: Clip.antiAlias,
+          child: SingleChildScrollView(child: widget.previewWidget),
         ),
-        clipBehavior: Clip.antiAlias,
-        child: SingleChildScrollView(child: widget.previewWidget),
       ),
     );
 

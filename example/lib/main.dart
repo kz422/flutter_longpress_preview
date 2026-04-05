@@ -70,14 +70,23 @@ class _WidgetTab extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 12),
             child: LongPressPreview(
               preview: _ArticleDetail(index: i),
+              onPreviewTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => ArticleDetailPage(index: i),
+                ),
+              ),
               config: PreviewConfig(
                 animation: PreviewAnimation.scaleFromChild,
                 actions: [
                   PreviewAction(
                     label: 'Open',
                     icon: Icons.open_in_new,
-                    onTap: () => ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('Opened article $i')),
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => ArticleDetailPage(index: i),
+                      ),
                     ),
                   ),
                   PreviewAction(
@@ -264,6 +273,122 @@ class _ImageTab extends StatelessWidget {
           ),
         );
       },
+    );
+  }
+}
+
+// ── Article detail page ───────────────────────────────────────────────────────
+
+class ArticleDetailPage extends StatelessWidget {
+  final int index;
+  const ArticleDetailPage({super.key, required this.index});
+
+  static const _body =
+      'Flutter is Google\'s UI toolkit for building beautiful, natively compiled '
+      'applications for mobile, web, desktop, and embedded devices from a single '
+      'codebase. With its rich set of pre-built widgets and a reactive framework, '
+      'Flutter makes it easy to craft high-quality user experiences.\n\n'
+      'Long-press previews let users peek at content without fully committing to '
+      'navigation — a pattern popularised by iOS\'s Peek & Pop. This page is what '
+      'opens when the user taps the preview or selects "Open" from the action menu.';
+
+  @override
+  Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
+    return Scaffold(
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar.large(
+            title: Text('Article $index'),
+            flexibleSpace: FlexibleSpaceBar(
+              background: Container(
+                color: colorScheme.primaryContainer,
+                child: Center(
+                  child: Icon(
+                    Icons.article_rounded,
+                    size: 96,
+                    color: colorScheme.onPrimaryContainer.withValues(alpha: 0.4),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.all(24),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      CircleAvatar(
+                        radius: 18,
+                        backgroundColor: colorScheme.primaryContainer,
+                        child: Text(
+                          '$index',
+                          style: TextStyle(
+                            color: colorScheme.onPrimaryContainer,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 12),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Author $index',
+                            style: const TextStyle(fontWeight: FontWeight.w600),
+                          ),
+                          Text(
+                            'April 4, 2026',
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: colorScheme.onSurfaceVariant,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 24),
+                  Text(
+                    'Article $index — Full Detail',
+                    style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
+                  ),
+                  const SizedBox(height: 16),
+                  Text(
+                    _body,
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyLarge
+                        ?.copyWith(height: 1.75),
+                  ),
+                  const SizedBox(height: 32),
+                  Row(
+                    children: [
+                      FilledButton.icon(
+                        onPressed: () {},
+                        icon: const Icon(Icons.bookmark_outline),
+                        label: const Text('Save'),
+                      ),
+                      const SizedBox(width: 12),
+                      OutlinedButton.icon(
+                        onPressed: () {},
+                        icon: const Icon(Icons.share_outlined),
+                        label: const Text('Share'),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
