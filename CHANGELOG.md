@@ -1,3 +1,8 @@
+## 0.1.9
+
+* Remove `screenshots` section from pubspec.yaml — animated GIFs are not supported by pana's WebP converter, causing score penalty. Screenshots remain in README via GitHub raw URLs.
+* Update banner SVG: move popup card upward, rename "Image zoom" pill to "Image preview".
+
 ## 0.1.8
 
 * Fix `LongPressImagePreview` using `BoxFit.cover` to eliminate black bars on non-square images.

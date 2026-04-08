@@ -1,17 +1,26 @@
-# flutter_longpress_preview
+<p align="center">
+  <img src="https://raw.githubusercontent.com/kz422/flutter_longpress_preview/main/screenshots/banner.svg" alt="flutter_longpress_preview" width="100%"/>
+</p>
 
-[![pub version](https://img.shields.io/pub/v/flutter_longpress_preview.svg)](https://pub.dev/packages/flutter_longpress_preview)
-[![pub points](https://img.shields.io/pub/points/flutter_longpress_preview)](https://pub.dev/packages/flutter_longpress_preview/score)
-[![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Flutter](https://img.shields.io/badge/Flutter-%3E%3D3.10-blue.svg)](https://flutter.dev)
+<p align="center">
+  <a href="https://pub.dev/packages/flutter_longpress_preview"><img src="https://img.shields.io/pub/v/flutter_longpress_preview.svg" alt="pub version"/></a>
+  <a href="https://pub.dev/packages/flutter_longpress_preview/score"><img src="https://img.shields.io/pub/points/flutter_longpress_preview" alt="pub points"/></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="license: MIT"/></a>
+  <a href="https://flutter.dev"><img src="https://img.shields.io/badge/Flutter-%3E%3D3.10-blue.svg" alt="Flutter"/></a>
+</p>
 
-A Flutter package that shows a preview popup on long press, inspired by Safari's link preview and Instagram's peek feature. Supports any widget, automatic URL/OGP link previews, and zoomable image previews — with smooth animations, blur backdrop, and drag-to-dismiss.
+<p align="center">
+  A Flutter package that shows a preview popup on long press —<br/>
+  inspired by Safari's link preview and Instagram's peek feature.
+</p>
+
+---
 
 <table>
   <tr>
-    <td align="center"><img src="https://raw.githubusercontent.com/kz422/flutter_longpress_preview/main/screenshots/preview_with_context_menu.gif" width="220" /><br/><sub>Widget preview + context menu</sub></td>
-    <td align="center"><img src="https://raw.githubusercontent.com/kz422/flutter_longpress_preview/main/screenshots/links_preview.gif" width="220" /><br/><sub>OGP link preview</sub></td>
-    <td align="center"><img src="https://raw.githubusercontent.com/kz422/flutter_longpress_preview/main/screenshots/images_preview.gif" width="220" /><br/><sub>Image preview</sub></td>
+    <td align="center"><img src="https://raw.githubusercontent.com/kz422/flutter_longpress_preview/main/screenshots/preview_with_context_menu.gif" width="220"/><br/><sub>Widget preview + context menu</sub></td>
+    <td align="center"><img src="https://raw.githubusercontent.com/kz422/flutter_longpress_preview/main/screenshots/links_preview.gif" width="220"/><br/><sub>OGP link preview</sub></td>
+    <td align="center"><img src="https://raw.githubusercontent.com/kz422/flutter_longpress_preview/main/screenshots/images_preview.gif" width="220"/><br/><sub>Image preview</sub></td>
   </tr>
 </table>
 
@@ -53,6 +62,29 @@ flutter pub get
 
 ---
 
+## Quick start
+
+```dart
+import 'package:flutter_longpress_preview/flutter_longpress_preview.dart';
+
+// Wrap any widget — long press to peek, tap to navigate.
+LongPressPreview(
+  preview: ArticleDetailWidget(),
+  onPreviewTap: () => Navigator.push(context, ...),
+  config: PreviewConfig(
+    animation: PreviewAnimation.scaleFromChild,
+    actions: [
+      PreviewAction(label: 'Open',     icon: Icons.open_in_new, onTap: () { ... }),
+      PreviewAction(label: 'Bookmark', icon: Icons.bookmark_outline, onTap: () { ... }),
+      PreviewAction(label: 'Delete',   icon: Icons.delete_outline, isDestructive: true, onTap: () { ... }),
+    ],
+  ),
+  child: ArticleCard(),
+)
+```
+
+---
+
 ## Usage
 
 ### 1. LongPressPreview — any widget
@@ -60,8 +92,6 @@ flutter pub get
 Wrap any widget to preview arbitrary content on long press.
 
 ```dart
-import 'package:flutter_longpress_preview/flutter_longpress_preview.dart';
-
 LongPressPreview(
   preview: MyDetailWidget(),   // shown in the popup
   child: MyThumbnailWidget(),  // the widget that receives the long press
